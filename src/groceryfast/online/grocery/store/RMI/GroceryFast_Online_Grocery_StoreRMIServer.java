@@ -18,6 +18,11 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+           
+        DB db = new DB();
+         User u=new User("Ahmed","Ahmed@gmail.com","password");
+        db.insertUser(u);
+        
          try {
             // My remote object [Skeleton]
             FacadeInterface facade = new UserFacade();
