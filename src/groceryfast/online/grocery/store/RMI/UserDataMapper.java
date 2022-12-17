@@ -15,9 +15,9 @@ import java.util.Optional;
 public interface UserDataMapper {
      Optional<User> find(int userID);
 
-        void insertOne(User user);
+        void insertSubscriber(Customer  customer);
 
-        void updateOne(User user) ;
+        void updateOne(Customer  customer) ;
 
-        void deleteOne(User user);
+        void deleteSubscriber(String username);
 }

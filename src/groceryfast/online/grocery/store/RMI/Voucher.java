@@ -10,9 +10,11 @@ package groceryfast.online.grocery.store.RMI;
  * @author Ahmed Desouki
  */
 public class Voucher implements Subject {
-    String voucherID;
-    String expiry;
-   UserDataMapperIMP DataMapper=new UserDataMapperIMP();
+   private String voucherID;
+   private String expiry;
+   
+  
+   
     public Voucher(String voucherID, String expiry) {
         this.voucherID = voucherID;
         this.expiry = expiry;
@@ -37,15 +39,30 @@ public class Voucher implements Subject {
     public void setExpiry(String expiry) {
         this.expiry = expiry;
     }
+    
+    
+    public void addVoucher(Voucher voucher){
+         VoucherDataMapperIMP DataMapperVoucher=new VoucherDataMapperIMP();
+        DataMapperVoucher.insertOne(voucher);
+    }
+    
+     public void removeVoucher(Voucher voucher){
+          VoucherDataMapperIMP DataMapperVoucher=new VoucherDataMapperIMP();
+        DataMapperVoucher.deleteOne(voucher.getVoucherID());
+    }
+    
+    
 
     @Override
-    public void addObserver(User user) {
-        DataMapper.insertOne(user);
+    public void addObserver(Customer  customer) {
+        UserDataMapperIMP DataMapper=new UserDataMapperIMP();
+        DataMapper.insertSubscriber(customer);
     }
 
     @Override
-    public void removeObserver(User user) {
-       DataMapper.deleteOne(user);
+    public void removeObserver(Customer  customer) {
+        UserDataMapperIMP DataMapper=new UserDataMapperIMP();
+       DataMapper.deleteSubscriber(customer.getUsername());
     }
 
     @Override

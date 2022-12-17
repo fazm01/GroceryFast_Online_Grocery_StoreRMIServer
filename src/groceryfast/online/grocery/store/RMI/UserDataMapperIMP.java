@@ -6,9 +6,11 @@
 package groceryfast.online.grocery.store.RMI;
 
 import com.mongodb.client.model.Filters;
+import static com.mongodb.client.model.Filters.eq;
 import static groceryfast.online.grocery.store.RMI.DB.gson;
 import java.util.Optional;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -22,21 +24,23 @@ public class UserDataMapperIMP implements UserDataMapper {
     }
 
     @Override
-    public void insertOne(User user) {
-        db.collection2.insertOne(Document.parse(gson.toJson(user)));
+    public void insertSubscriber(Customer  customer) {
+        db.collectionsubscribers.insertOne(Document.parse(gson.toJson(customer)));
         System.out.println("subscriber is inserted.");
     }
 
     @Override
-    public void updateOne(User user) {
+    public void updateOne(Customer  customer) {
         
     }
 
     @Override
     
     //Delete fron subscribers 
-    public void deleteOne(User user) {
-        db.collection2.deleteOne(Filters.eq(user));
+    public void deleteSubscriber(String username) {
+        //Bson query = eq("username", "Desoukii");
+        db.collectionsubscribers.deleteOne(Filters.eq("username", username));
+         System.out.println("subscriber is deleted.");
     }
     
 }

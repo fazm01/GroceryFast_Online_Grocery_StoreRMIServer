@@ -9,9 +9,11 @@ package groceryfast.online.grocery.store.RMI;
  *
  * @author Ahmed Desouki
  */
-public interface Subject {
-       void addObserver(Customer  customer);
-    void removeObserver(Customer  customer);
-   
-    void notifyy();
+public interface VoucherDataMapper {
+    
+    void insertOne(Voucher voucher);
+    
+     void deleteOne(String VoucherID);
+     
+      void updateOne(Voucher voucher) ;
 }
