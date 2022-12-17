@@ -25,6 +25,7 @@ public class DB {
    public static MongoDatabase database;
     
    MongoCollection<Document> collection1;
+   MongoCollection<Document> collection2;
    
    public DB(){
     try{
@@ -33,6 +34,7 @@ public class DB {
              
              MongoDatabase database = mongoClient.getDatabase("Cluster0");
              collection1 = database.getCollection("User");
+             collection2 = database.getCollection("subscribers");
              
              System.out.println("connnected");
          } 
@@ -41,9 +43,9 @@ public class DB {
          }
    }
    
-   public void insertUser(User u) 
-    {
-        collection1.insertOne(Document.parse(gson.toJson(u)));
-        System.out.println("User is inserted.");
-    }
+//   public void insertUser(User u) 
+//    {
+//        collection1.insertOne(Document.parse(gson.toJson(u)));
+//        System.out.println("User is inserted.");
+//    }
 }

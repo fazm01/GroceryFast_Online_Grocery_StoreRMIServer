@@ -20,8 +20,10 @@ public class GroceryFast_Online_Grocery_StoreRMIServer {
     public static void main(String[] args) {
            
         DB db = new DB();
-         User u=new User("Ahmed","Ahmed@gmail.com","password");
-        db.insertUser(u);
+        Voucher v=new Voucher();
+         User u=new User("Desoukii","alooo@gmail.com","password");
+//        db.insertUser(u);
+          v.addObserver(u);
         
          try {
             // My remote object [Skeleton]
