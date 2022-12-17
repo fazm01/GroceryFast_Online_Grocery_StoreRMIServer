@@ -31,11 +31,13 @@ public class Order {
     //Methods:
     public void PlaceOrder(Order O){
     O.setCurrentState(new PlaceOrder(O));
-    O.CurrentState.PlaceOrder();
+    System.out.println("Order has been placed successfully.");
     }
     
-    public void CancelOrder(){
-    setCurrentState(null);
+    public void CancelOrder(Order O){
+        
+    System.out.println("Cannot cancel an order that hasn't been placed yet");
+        
     }
 
     @Override
