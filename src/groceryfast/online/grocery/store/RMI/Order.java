@@ -21,18 +21,21 @@ public class Order {
     private ArrayList <Item> items;
 
     //Constructor:
-    public Order(int OrderID, float TotalPrice, String Date, OrderState CurrentState, ArrayList<Item> items) {
+    public Order(int OrderID, float TotalPrice, String Date, ArrayList<Item> items) {
         this.OrderID = OrderID;
         this.TotalPrice = TotalPrice;
         this.Date = Date;
-        this.CurrentState = CurrentState;
         this.items = items;
     }
     
     //Methods:
-    public void PlaceOrder(){}
+    public void PlaceOrder(Order O){
+    setCurrentState(O.CurrentState);
+    }
     
-    public void CancelOrder(){}
+    public void CancelOrder(){
+    setCurrentState(null);
+    }
     
     //Setters:
     public void setOrderID(int OrderID) {
