@@ -9,6 +9,18 @@ package groceryfast.online.grocery.store.RMI;
  *
  * @author Farid
  */
-public interface OrderState {
+public abstract class OrderState {
+    protected Order order;
+    
+    public abstract void PlaceOrder();
+    public abstract void CancelOrder();
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
     
 }

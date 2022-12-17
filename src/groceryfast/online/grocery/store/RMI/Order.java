@@ -30,11 +30,17 @@ public class Order {
     
     //Methods:
     public void PlaceOrder(Order O){
-    setCurrentState(O.CurrentState);
+    O.setCurrentState(new PlaceOrder(O));
+    O.CurrentState.PlaceOrder();
     }
     
     public void CancelOrder(){
     setCurrentState(null);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "OrderID=" + OrderID + ", TotalPrice=" + TotalPrice + ", Date=" + Date + ", CurrentState=" + CurrentState + ", items=" + items + '}';
     }
     
     //Setters:
